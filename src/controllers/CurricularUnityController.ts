@@ -5,7 +5,8 @@ import {
   ReadAllCurricularUnitys,
   ReadCurricularUnity,
   UpdateCurricularUnity,
-} from "../repository/CurricularUnityRepository";
+} 
+from "../repository/CurricularUnityRepository";
 
 // Cria uma Unidade Curricular
 export async function createCurricularUnity(req: Request, res: Response) {

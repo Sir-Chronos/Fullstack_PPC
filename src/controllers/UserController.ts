@@ -6,7 +6,8 @@ import {
   ReadUser,
   ReadUserByEmail,
   UpdateUser,
-} from "../repository/repository";
+} 
+from "../repository/UserRepository";
 import bcrypt from "bcrypt";
 
 // Cria um usuário

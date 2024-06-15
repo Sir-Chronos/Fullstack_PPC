@@ -5,7 +5,8 @@ import {
   ReadAllHolidays,
   ReadHoliday,
   UpdateHoliday,
-} from "../repository/repository";
+} 
+from "../repository/HolidaysRepository";
 
 // Cria um Holiday
 export async function createHoliday(req: Request, res: Response) {

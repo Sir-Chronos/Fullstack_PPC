@@ -5,7 +5,8 @@ import {
   ReadAllKnowledge,
   ReadKnowledge,
   UpdateKnowledge,
-} from "../repository/repository";
+} 
+from "../repository/KnowledgeRepository";
 
 // Cria um Knowledge
 export async function createKnowledge(req: Request, res: Response) {

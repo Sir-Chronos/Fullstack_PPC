@@ -5,7 +5,8 @@ import {
   ReadAllSkills,
   ReadSkill,
   UpdateSkill,
-} from "../repository/repository";
+} 
+from "../repository/SkillRepository";
 
 // Cria uma Skill
 export async function createSkill(req: Request, res: Response) {

@@ -5,7 +5,8 @@ import {
   ReadAllPPCs,
   ReadPPC,
   UpdatePPC,
-} from "../repository/repository";
+} 
+from "../repository/PPCRepository";
 
 // Cria um PPC
 export async function createPPC(req: Request, res: Response) {

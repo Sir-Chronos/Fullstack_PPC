@@ -5,7 +5,8 @@ import {
   ReadAllKnowledgeCurricularUnitys,
   ReadKnowledgeCurricularUnity,
   UpdateKnowledgeCurricularUnity,
-} from "../repository/CurricularUnityKnowledgeRepository";
+} 
+from "../repository/CurricularUnityKnowledgeRepository";
 
 // Cria um Conhecimento de Unidade Curricular
 export async function createKnowledgeCurricularUnity(
