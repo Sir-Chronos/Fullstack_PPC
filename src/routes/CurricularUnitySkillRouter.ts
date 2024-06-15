@@ -1,25 +1,12 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import * as CurricularUnitySkill from './CurricularUnitySkill';
 
 const CurricularUnitySkillRouter = Router();
 
-// Rota para criar uma CurricularUnitySkill
-CurricularUnitySkillRouter.post("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar todas as CurricularUnitySkills
-CurricularUnitySkillRouter.get("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar uma CurricularUnitySkill específica
-CurricularUnitySkillRouter.get("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para atualizar uma CurricularUnitySkill específica
-CurricularUnitySkillRouter.put("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para deletar uma CurricularUnitySkill específica
-CurricularUnitySkillRouter.delete("/:id", async (req: Request, res: Response) => {
-});
+CurricularUnitySkillRouter.post("/", CurricularUnitySkill.createUser);
+CurricularUnitySkillRouter.get("/", CurricularUnitySkill.getAllUsers);
+CurricularUnitySkillRouter.get("/:id", CurricularUnitySkill.getUser);
+CurricularUnitySkillRouter.put("/:id", CurricularUnitySkill.updateUser);
+CurricularUnitySkillRouter.delete("/:id", CurricularUnitySkill.deleteUser);
 
 export default CurricularUnitySkillRouter;

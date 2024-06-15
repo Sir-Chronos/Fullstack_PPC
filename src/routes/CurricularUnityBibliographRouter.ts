@@ -1,25 +1,12 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import * as CurricularUnityBibliographController from './CurricularUnityBibliographController';
 
 const CurricularUnityBibliographRouter = Router();
 
-// Rota para criar uma CurricularUnityBibliograph
-CurricularUnityBibliographRouter.post("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar todas as CurricularUnityBibliograph
-CurricularUnityBibliographRouter.get("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar uma CurricularUnityBibliograph específica
-CurricularUnityBibliographRouter.get("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para atualizar uma CurricularUnityBibliograph específica
-CurricularUnityBibliographRouter.put("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para deletar uma CurricularUnityBibliograph específica
-CurricularUnityBibliographRouter.delete("/:id", async (req: Request, res: Response) => {
-});
+CurricularUnityBibliographRouter.post("/", CurricularUnityBibliographController.createUser);
+CurricularUnityBibliographRouter.get("/", CurricularUnityBibliographController.getAllUsers);
+CurricularUnityBibliographRouter.get("/:id", CurricularUnityBibliographController.getUser);
+CurricularUnityBibliographRouter.put("/:id", CurricularUnityBibliographController.updateUser);
+CurricularUnityBibliographRouter.delete("/:id", CurricularUnityBibliographController.deleteUser);
 
 export default CurricularUnityBibliographRouter;

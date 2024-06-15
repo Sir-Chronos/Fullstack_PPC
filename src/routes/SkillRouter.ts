@@ -1,25 +1,12 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import * as SkillController from './SkillController';
 
 const SkillRouter = Router();
 
-// Rota para criar uma Skill
-SkillRouter.post("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar todas as Skills
-SkillRouter.get("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar uma Skill específica
-SkillRouter.get("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para atualizar uma Skill específica
-SkillRouter.put("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para deletar uma Skill específica
-SkillRouter.delete("/:id", async (req: Request, res: Response) => {
-});
+SkillRouter.post("/", SkillController.createSkill);
+SkillRouter.get("/", SkillController.getAllSkills);
+SkillRouter.get("/:id", SkillController.getSkill);
+SkillRouter.put("/:id", SkillController.updateSkill);
+SkillRouter.delete("/:id", SkillController.deleteSkill);
 
 export default SkillRouter;

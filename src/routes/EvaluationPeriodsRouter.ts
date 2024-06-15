@@ -1,25 +1,12 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import * as EvaluationPeriodsController from './EvaluationPeriodsController';
 
 const EvaluationPeriodsRouter = Router();
 
-// Rota para criar um EvaluationPeriod
-EvaluationPeriodsRouter.post("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar todos os EvaluationPeriods
-EvaluationPeriodsRouter.get("/", async (req: Request, res: Response) => {
-});
-
-// Rota para recuperar um EvaluationPeriod específico
-EvaluationPeriodsRouter.get("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para atualizar um EvaluationPeriod específico
-EvaluationPeriodsRouter.put("/:id", async (req: Request, res: Response) => {
-});
-
-// Rota para deletar um EvaluationPeriod específico
-EvaluationPeriodsRouter.delete("/:id", async (req: Request, res: Response) => {
-});
+EvaluationPeriodsRouter.post("/", EvaluationPeriodsController.createUser);
+EvaluationPeriodsRouter.get("/", EvaluationPeriodsController.getAllUsers);
+EvaluationPeriodsRouter.get("/:id", EvaluationPeriodsController.getUser);
+EvaluationPeriodsRouter.put("/:id", EvaluationPeriodsController.updateUser);
+EvaluationPeriodsRouter.delete("/:id", EvaluationPeriodsController.deleteUser);
 
 export default EvaluationPeriodsRouter;
