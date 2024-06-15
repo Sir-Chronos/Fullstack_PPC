@@ -1,6 +1,13 @@
 import { Request, Response } from "express";
-import { CreateUser, DeleteUser, ReadAllUsers, ReadUser, ReadUserByEmail, UpdateUser } from "../config/repository"
-import bcrypt from 'bcrypt';
+import {
+  CreateUser,
+  DeleteUser,
+  ReadAllUsers,
+  ReadUser,
+  ReadUserByEmail,
+  UpdateUser,
+} from "../repository/repository";
+import bcrypt from "bcrypt";
 
 // Cria um usuário
 export async function createUser(req: Request, res: Response) {
@@ -76,7 +83,7 @@ export async function loginUser(req: Request, res: Response) {
   const { email, password } = req.body;
   try {
     const user = await ReadUserByEmail(email);
-    if (user && await bcrypt.compare(password, user.password)) {
+    if (user && (await bcrypt.compare(password, user.password))) {
       // Suponha que você gera um token JWT aqui
       const token = "fake-jwt-token";
       res.status(200).json({ token });

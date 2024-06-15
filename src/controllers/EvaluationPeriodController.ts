@@ -1,11 +1,21 @@
 import { Request, Response } from "express";
-import { CreateEvaluationPeriod, DeleteEvaluationPeriod, ReadAllEvaluationPeriods, ReadEvaluationPeriod, UpdateEvaluationPeriod } from "../config/repository";
+import {
+  CreateEvaluationPeriod,
+  DeleteEvaluationPeriod,
+  ReadAllEvaluationPeriods,
+  ReadEvaluationPeriod,
+  UpdateEvaluationPeriod,
+} from "../repository/repository";
 
 // Cria um EvaluationPeriod
 export async function createEvaluationPeriod(req: Request, res: Response) {
   const { name, beginning, ending } = req.body;
   try {
-    const EvaluationPeriod = await CreateEvaluationPeriod(name, beginning, ending);
+    const EvaluationPeriod = await CreateEvaluationPeriod(
+      name,
+      beginning,
+      ending
+    );
     res.status(201).json(EvaluationPeriod);
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar EvaluationPeriod" });
@@ -40,9 +50,14 @@ export async function getEvaluationPeriod(req: Request, res: Response) {
 // Atualiza um EvaluationPeriod específico
 export async function updateEvaluationPeriod(req: Request, res: Response) {
   const { id } = req.params;
-  const { name, beginning, ending} = req.body;
+  const { name, beginning, ending } = req.body;
   try {
-    const EvaluationPeriod = await UpdateEvaluationPeriod(Number(id), name, beginning, ending);
+    const EvaluationPeriod = await UpdateEvaluationPeriod(
+      Number(id),
+      name,
+      beginning,
+      ending
+    );
     if (EvaluationPeriod) {
       res.status(200).json(EvaluationPeriod);
     } else {

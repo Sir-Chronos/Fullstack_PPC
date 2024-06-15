@@ -1,5 +1,11 @@
 import { Request, Response } from "express";
-import { CreateCurricularUnity, DeleteCurricularUnity, ReadAllCurricularUnitys, ReadCurricularUnity, UpdateCurricularUnity } from "../config/repository"
+import {
+  CreateCurricularUnity,
+  DeleteCurricularUnity,
+  ReadAllCurricularUnitys,
+  ReadCurricularUnity,
+  UpdateCurricularUnity,
+} from "../repository/repository";
 
 // Cria uma Unidade Curricular
 export async function createCurricularUnity(req: Request, res: Response) {
@@ -42,7 +48,12 @@ export async function updateCurricularUnity(req: Request, res: Response) {
   const { id } = req.params;
   const { objetive, name, ppcId } = req.body;
   try {
-    const CurricularUnity = await UpdateCurricularUnity(Number(id), objetive, name, ppcId);
+    const CurricularUnity = await UpdateCurricularUnity(
+      Number(id),
+      objetive,
+      name,
+      ppcId
+    );
     if (CurricularUnity) {
       res.status(200).json(CurricularUnity);
     } else {

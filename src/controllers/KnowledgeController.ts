@@ -1,5 +1,11 @@
 import { Request, Response } from "express";
-import { CreateKnowledge, DeleteKnowledge, ReadAllKnowledge, ReadKnowledge, UpdateKnowledge } from "../config/repository";
+import {
+  CreateKnowledge,
+  DeleteKnowledge,
+  ReadAllKnowledge,
+  ReadKnowledge,
+  UpdateKnowledge,
+} from "../repository/repository";
 
 // Cria um Knowledge
 export async function createKnowledge(req: Request, res: Response) {
@@ -40,9 +46,13 @@ export async function getKnowledge(req: Request, res: Response) {
 // Atualiza um Knowledge específico
 export async function updateKnowledge(req: Request, res: Response) {
   const { id } = req.params;
-  const { description, knowFatherId} = req.body;
+  const { description, knowFatherId } = req.body;
   try {
-    const Knowledge = await UpdateKnowledge(Number(id), description, knowFatherId);
+    const Knowledge = await UpdateKnowledge(
+      Number(id),
+      description,
+      knowFatherId
+    );
     if (Knowledge) {
       res.status(200).json(Knowledge);
     } else {

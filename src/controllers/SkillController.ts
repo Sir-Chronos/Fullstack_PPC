@@ -1,5 +1,11 @@
 import { Request, Response } from "express";
-import { CreateSkill, DeleteSkill, ReadAllSkills, ReadSkill, UpdateSkill } from "../config/repository";
+import {
+  CreateSkill,
+  DeleteSkill,
+  ReadAllSkills,
+  ReadSkill,
+  UpdateSkill,
+} from "../repository/repository";
 
 // Cria uma Skill
 export async function createSkill(req: Request, res: Response) {
@@ -40,7 +46,7 @@ export async function getSkill(req: Request, res: Response) {
 // Atualiza uma Skill específica
 export async function updateSkill(req: Request, res: Response) {
   const { id } = req.params;
-  const { type, description} = req.body;
+  const { type, description } = req.body;
   try {
     const Skill = await UpdateSkill(Number(id), type, description);
     if (Skill) {
