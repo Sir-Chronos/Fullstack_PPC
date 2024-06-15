@@ -92,6 +92,22 @@ async function DeleteUser(id: number) {
   }
 }
 
+async function ReadUserByEmail(email: string) {
+  try {
+    const user = await User.findOne({ where: { email } });
+    if (user) {
+      console.log("User retrieved successfully:", user);
+      return user;
+    } else {
+      console.log("User not found");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error reading user:", error);
+    throw error;
+  }
+}
+
 //------------------------- Skill model ---------------------------------//
 
 async function CreateSkill(type: string, description: string) {
@@ -574,7 +590,7 @@ async function CreateKnowledgeCurricularUnity(knowledgeId: number, curricularUni
   }
 }
 
-async function ReadAllKnowledgeCurricularUnity() {
+async function ReadAllKnowledgeCurricularUnitys() {
   try {
     const knowledgeCurricularUnityList = await KnowledgeCurricularUnity.findAll();
     console.log("KnowledgeCurricularUnity retrieved successfully:", knowledgeCurricularUnityList);
@@ -650,7 +666,7 @@ async function CreateBibliographCurricularUnity(bibliographId: number, curricula
   }
 }
 
-async function ReadAllBibliographCurricularUnity() {
+async function ReadAllBibliographCurricularUnitys() {
   try {
     const bibliographCurricularUnityList = await BibliographCurricularUnity.findAll();
     console.log("BibliographCurricularUnity retrieved successfully:", bibliographCurricularUnityList);
@@ -726,7 +742,7 @@ async function CreateCurricularUnity(objective: string, name: string, ppcId: num
   }
 }
 
-async function ReadAllCurricularUnits() {
+async function ReadAllCurricularUnitys() {
   try {
     const curricularUnities = await CurricularUnity.findAll();
     console.log("CurricularUnities retrieved successfully:", curricularUnities);
@@ -873,17 +889,17 @@ export {
   UpdateBibliograph,
   DeleteBibliograph,
   CreateCurricularUnity,
-  ReadAllCurricularUnits,
+  ReadAllCurricularUnitys,
   ReadCurricularUnity,
   UpdateCurricularUnity,
   DeleteCurricularUnity,
   CreateBibliographCurricularUnity,
-  ReadAllBibliographCurricularUnity,
+  ReadAllBibliographCurricularUnitys,
   ReadBibliographCurricularUnity,
   UpdateBibliographCurricularUnity,
   DeleteBibliographCurricularUnity,
   CreateKnowledgeCurricularUnity,
-  ReadAllKnowledgeCurricularUnity,
+  ReadAllKnowledgeCurricularUnitys,
   ReadKnowledgeCurricularUnity,
   UpdateKnowledgeCurricularUnity,
   DeleteKnowledgeCurricularUnity,
@@ -921,5 +937,6 @@ export {
   ReadAllUsers,
   ReadUser,
   UpdateUser,
-  DeleteUser
+  DeleteUser,
+  ReadUserByEmail
 };

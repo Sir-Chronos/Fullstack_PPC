@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as CurricularUnityBibliographController from './CurricularUnityBibliographController';
+import * as CurricularUnityBibliographController from '../controllers/CurricularUnityBibliographController';
 
 const CurricularUnityBibliographRouter = Router();
 
-CurricularUnityBibliographRouter.post("/", CurricularUnityBibliographController.createUser);
-CurricularUnityBibliographRouter.get("/", CurricularUnityBibliographController.getAllUsers);
-CurricularUnityBibliographRouter.get("/:id", CurricularUnityBibliographController.getUser);
-CurricularUnityBibliographRouter.put("/:id", CurricularUnityBibliographController.updateUser);
-CurricularUnityBibliographRouter.delete("/:id", CurricularUnityBibliographController.deleteUser);
+CurricularUnityBibliographRouter.post("/", CurricularUnityBibliographController.createBibliographCurricularUnity);
+CurricularUnityBibliographRouter.get("/", CurricularUnityBibliographController.getAllBibliographCurricularUnitys);
+CurricularUnityBibliographRouter.get("/:id", CurricularUnityBibliographController.getBibliographCurricularUnity);
+CurricularUnityBibliographRouter.put("/:id", CurricularUnityBibliographController.updateBibliographCurricularUnity);
+CurricularUnityBibliographRouter.delete("/:id", CurricularUnityBibliographController.deleteBibliographCurricularUnity);
 
 export default CurricularUnityBibliographRouter;

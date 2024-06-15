@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as KnowledgeController from './KnowledgeController';
+import * as KnowledgeController from '../controllers/KnowledgeController';
 
 const KnowledgeRouter = Router();
 
-KnowledgeRouter.post("/", KnowledgeController.createUser);
-KnowledgeRouter.get("/", KnowledgeController.getAllUsers);
-KnowledgeRouter.get("/:id", KnowledgeController.getUser);
-KnowledgeRouter.put("/:id", KnowledgeController.updateUser);
-KnowledgeRouter.delete("/:id", KnowledgeController.deleteUser);
+KnowledgeRouter.post("/", KnowledgeController.createKnowledge);
+KnowledgeRouter.get("/", KnowledgeController.getAllKnowledges);
+KnowledgeRouter.get("/:id", KnowledgeController.getKnowledge);
+KnowledgeRouter.put("/:id", KnowledgeController.updateKnowledge);
+KnowledgeRouter.delete("/:id", KnowledgeController.deleteKnowledge);
 
 export default KnowledgeRouter;

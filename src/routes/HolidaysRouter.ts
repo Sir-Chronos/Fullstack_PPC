@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as HolidaysController from './HolidaysController';
+import * as HolidaysController from '../controllers/HolidayController';
 
 const HolidaysRouter = Router();
 
-HolidaysRouter.post("/", HolidaysController.createUser);
-HolidaysRouter.get("/", HolidaysController.getAllUsers);
-HolidaysRouter.get("/:id", HolidaysController.getUser);
-HolidaysRouter.put("/:id", HolidaysController.updateUser);
-HolidaysRouter.delete("/:id", HolidaysController.deleteUser);
+HolidaysRouter.post("/", HolidaysController.createHoliday);
+HolidaysRouter.get("/", HolidaysController.getAllHolidays);
+HolidaysRouter.get("/:id", HolidaysController.getHoliday);
+HolidaysRouter.put("/:id", HolidaysController.updateHoliday);
+HolidaysRouter.delete("/:id", HolidaysController.deleteHoliday);
 
 export default HolidaysRouter;

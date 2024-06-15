@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as PPCController from './PPCController';
+import * as PPCController from '../controllers/PPCController';
 
 const PPCRouter = Router();
 
