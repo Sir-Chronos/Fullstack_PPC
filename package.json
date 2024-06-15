@@ -2,14 +2,14 @@
   "name": "nodejs-typescript",
   "version": "1.0.0",
   "description": "Use of node express and typescript in a postgress database",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
     "prestart": "npm run build",
-    "start": "node dist/index.js",
+    "start": "node dist/app.js",
     "preserve": "npm run build",
-    "serve": "concurrently -k \"tsc -w\" \"nodemon dist/index.js --config nodemon.json\""
+    "serve": "concurrently -k \"tsc -w\" \"nodemon dist/app.js --config nodemon.json\""
   },
   "keywords": [],
   "author": "Gabriel Teodoro",
