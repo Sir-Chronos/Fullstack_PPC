@@ -5,7 +5,7 @@ import {
   ReadAllEvaluationPeriods,
   ReadEvaluationPeriod,
   UpdateEvaluationPeriod,
-} from "../repository/repository";
+} from "../repository/EvaluationPeriodsRepository";
 
 // Cria um EvaluationPeriod
 export async function createEvaluationPeriod(req: Request, res: Response) {

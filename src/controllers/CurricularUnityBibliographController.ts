@@ -5,7 +5,8 @@ import {
   ReadAllBibliographCurricularUnitys,
   ReadBibliographCurricularUnity,
   UpdateBibliographCurricularUnity,
-} from "../repository/repository";
+} 
+from "../repository/CurricularUnityBibliographRepository";
 
 // Cria uma Bibliografia de Unidade Curricular
 export async function createBibliographCurricularUnity(

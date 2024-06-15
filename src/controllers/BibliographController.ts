@@ -5,7 +5,8 @@ import {
   ReadAllBibliographs,
   ReadBibliograph,
   UpdateBibliograph,
-} from "../repository/repository";
+} 
+from "../repository/BibliographRepository";
 
 // Cria uma Bibliografia
 export async function createBibliograph(req: Request, res: Response) {

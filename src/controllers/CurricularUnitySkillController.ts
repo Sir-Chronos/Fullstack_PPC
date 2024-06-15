@@ -5,7 +5,7 @@ import {
   ReadAllCurricularUnitySkills,
   ReadCurricularUnitySkill,
   UpdateCurricularUnitySkill,
-} from "../repository/repository";
+} from "../repository/CurricularUnitySkillRepository";
 
 // Cria uma Skill de Unidade Curricular
 export async function createCurricularUnitySkill(req: Request, res: Response) {
