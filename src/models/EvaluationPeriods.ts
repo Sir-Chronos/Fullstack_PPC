@@ -26,3 +26,4 @@ export default class EvaluationPeriods extends Model<EvaluationPeriodsAttributes
   })
   ending!: Date;
 }
+
