@@ -92,6 +92,22 @@ async function DeleteUser(id: number) {
   }
 }
 
+async function ReadUserByEmail(email: string) {
+  try {
+    const user = await User.findOne({ where: { email } });
+    if (user) {
+      console.log("User retrieved successfully:", user);
+      return user;
+    } else {
+      console.log("User not found");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error reading user:", error);
+    throw error;
+  }
+}
+
 //------------------------- Skill model ---------------------------------//
 
 async function CreateSkill(type: string, description: string) {
@@ -921,5 +937,6 @@ export {
   ReadAllUsers,
   ReadUser,
   UpdateUser,
-  DeleteUser
+  DeleteUser,
+  ReadUserByEmail
 };

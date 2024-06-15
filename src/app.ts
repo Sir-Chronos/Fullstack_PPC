@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import sequelize from "./config/sequelize";
+
 import UserRouter from "./routes/UserRouter";
 
 const port = 8000;
