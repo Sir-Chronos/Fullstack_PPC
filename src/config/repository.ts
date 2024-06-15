@@ -590,7 +590,7 @@ async function CreateKnowledgeCurricularUnity(knowledgeId: number, curricularUni
   }
 }
 
-async function ReadAllKnowledgeCurricularUnity() {
+async function ReadAllKnowledgeCurricularUnitys() {
   try {
     const knowledgeCurricularUnityList = await KnowledgeCurricularUnity.findAll();
     console.log("KnowledgeCurricularUnity retrieved successfully:", knowledgeCurricularUnityList);
@@ -666,7 +666,7 @@ async function CreateBibliographCurricularUnity(bibliographId: number, curricula
   }
 }
 
-async function ReadAllBibliographCurricularUnity() {
+async function ReadAllBibliographCurricularUnitys() {
   try {
     const bibliographCurricularUnityList = await BibliographCurricularUnity.findAll();
     console.log("BibliographCurricularUnity retrieved successfully:", bibliographCurricularUnityList);
@@ -742,7 +742,7 @@ async function CreateCurricularUnity(objective: string, name: string, ppcId: num
   }
 }
 
-async function ReadAllCurricularUnits() {
+async function ReadAllCurricularUnitys() {
   try {
     const curricularUnities = await CurricularUnity.findAll();
     console.log("CurricularUnities retrieved successfully:", curricularUnities);
@@ -889,17 +889,17 @@ export {
   UpdateBibliograph,
   DeleteBibliograph,
   CreateCurricularUnity,
-  ReadAllCurricularUnits,
+  ReadAllCurricularUnitys,
   ReadCurricularUnity,
   UpdateCurricularUnity,
   DeleteCurricularUnity,
   CreateBibliographCurricularUnity,
-  ReadAllBibliographCurricularUnity,
+  ReadAllBibliographCurricularUnitys,
   ReadBibliographCurricularUnity,
   UpdateBibliographCurricularUnity,
   DeleteBibliographCurricularUnity,
   CreateKnowledgeCurricularUnity,
-  ReadAllKnowledgeCurricularUnity,
+  ReadAllKnowledgeCurricularUnitys,
   ReadKnowledgeCurricularUnity,
   UpdateKnowledgeCurricularUnity,
   DeleteKnowledgeCurricularUnity,

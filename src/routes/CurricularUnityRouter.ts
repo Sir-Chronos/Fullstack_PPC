@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as CurricularUnitySkillController from './CurricularUnitySkillController';
+import * as CurricularUnitySkillController from '../controllers/CurricularUnityController';
 
 const CurricularUnitySkillRouter = Router();
 
-CurricularUnitySkillRouter.post("/", CurricularUnitySkillController.createUser);
-CurricularUnitySkillRouter.get("/", CurricularUnitySkillController.getAllUsers);
-CurricularUnitySkillRouter.get("/:id", CurricularUnitySkillController.getUser);
-CurricularUnitySkillRouter.put("/:id", CurricularUnitySkillController.updateUser);
-CurricularUnitySkillRouter.delete("/:id", CurricularUnitySkillController.deleteUser);
+CurricularUnitySkillRouter.post("/", CurricularUnitySkillController.createCurricularUnity);
+CurricularUnitySkillRouter.get("/", CurricularUnitySkillController.getAllCurricularUnitys);
+CurricularUnitySkillRouter.get("/:id", CurricularUnitySkillController.getCurricularUnity);
+CurricularUnitySkillRouter.put("/:id", CurricularUnitySkillController.updateCurricularUnity);
+CurricularUnitySkillRouter.delete("/:id", CurricularUnitySkillController.deleteCurricularUnity);
 
 export default CurricularUnitySkillRouter;

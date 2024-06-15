@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as BibliographController from './BibliographController';
+import * as BibliographController from '../controllers/BibliographController';
 
 const BibliographRouter = Router();
 
-BibliographRouter.post("/", BibliographController.createUser);
-BibliographRouter.get("/", BibliographController.getAllUsers);
-BibliographRouter.get("/:id", BibliographController.getUser);
-BibliographRouter.put("/:id", BibliographController.updateUser);
-BibliographRouter.delete("/:id", BibliographController.deleteUser);
+BibliographRouter.post("/", BibliographController.createBibliograph);
+BibliographRouter.get("/", BibliographController.getAllBibliographs);
+BibliographRouter.get("/:id", BibliographController.getBibliograph);
+BibliographRouter.put("/:id", BibliographController.updateBibliograph);
+BibliographRouter.delete("/:id", BibliographController.deleteBibliograph);
 
 export default BibliographRouter;

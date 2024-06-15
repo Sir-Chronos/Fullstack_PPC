@@ -1,12 +1,12 @@
 import { Router } from "express";
-import * as CurricularUnityKnowledgeController from './CurricularUnityKnowledgeController';
+import * as CurricularUnityKnowledgeController from '../controllers/CurricularUnityKnowledgeController';
 
 const CurricularUnityKnowledgeRouter = Router();
 
-CurricularUnityKnowledgeRouter.post("/", CurricularUnityKnowledgeController.createUser);
-CurricularUnityKnowledgeRouter.get("/", CurricularUnityKnowledgeController.getAllUsers);
-CurricularUnityKnowledgeRouter.get("/:id", CurricularUnityKnowledgeController.getUser);
-CurricularUnityKnowledgeRouter.put("/:id", CurricularUnityKnowledgeController.updateUser);
-CurricularUnityKnowledgeRouter.delete("/:id", CurricularUnityKnowledgeController.deleteUser);
+CurricularUnityKnowledgeRouter.post("/", CurricularUnityKnowledgeController.createKnowledgeCurricularUnity);
+CurricularUnityKnowledgeRouter.get("/", CurricularUnityKnowledgeController.getAllKnowledgeCurricularUnitys);
+CurricularUnityKnowledgeRouter.get("/:id", CurricularUnityKnowledgeController.getKnowledgeCurricularUnity);
+CurricularUnityKnowledgeRouter.put("/:id", CurricularUnityKnowledgeController.updateKnowledgeCurricularUnity);
+CurricularUnityKnowledgeRouter.delete("/:id", CurricularUnityKnowledgeController.deleteKnowledgeCurricularUnity);
 
 export default CurricularUnityKnowledgeRouter;
