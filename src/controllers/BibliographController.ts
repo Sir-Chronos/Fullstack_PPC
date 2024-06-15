@@ -1,5 +1,12 @@
 import { Request, Response } from "express";
-import { CreateBibliograph, DeleteBibliograph, ReadAllBibliographs, ReadBibliograph, UpdateBibliograph } from "../config/repository"
+import {
+  CreateBibliograph,
+  DeleteBibliograph,
+  ReadAllBibliographs,
+  ReadBibliograph,
+  UpdateBibliograph,
+} 
+from "../repository/BibliographRepository";
 
 // Cria uma Bibliografia
 export async function createBibliograph(req: Request, res: Response) {

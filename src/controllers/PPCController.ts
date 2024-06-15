@@ -1,5 +1,12 @@
 import { Request, Response } from "express";
-import { CreatePPC, DeletePPC, ReadAllPPCs, ReadPPC, UpdatePPC } from "../config/repository";
+import {
+  CreatePPC,
+  DeletePPC,
+  ReadAllPPCs,
+  ReadPPC,
+  UpdatePPC,
+} 
+from "../repository/PPCRepository";
 
 // Cria um PPC
 export async function createPPC(req: Request, res: Response) {

@@ -1,5 +1,12 @@
 import { Request, Response } from "express";
-import { CreateHoliday, DeleteHoliday, ReadAllHolidays, ReadHoliday, UpdateHoliday } from "../config/repository";
+import {
+  CreateHoliday,
+  DeleteHoliday,
+  ReadAllHolidays,
+  ReadHoliday,
+  UpdateHoliday,
+} 
+from "../repository/HolidaysRepository";
 
 // Cria um Holiday
 export async function createHoliday(req: Request, res: Response) {
@@ -40,7 +47,7 @@ export async function getHoliday(req: Request, res: Response) {
 // Atualiza um Holiday específico
 export async function updateHoliday(req: Request, res: Response) {
   const { id } = req.params;
-  const { type, date, compensation} = req.body;
+  const { type, date, compensation } = req.body;
   try {
     const Holiday = await UpdateHoliday(Number(id), type, date, compensation);
     if (Holiday) {
