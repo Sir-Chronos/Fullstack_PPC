@@ -5,7 +5,6 @@ import {
   LoginUser,
   ReadAllUsers,
   ReadUser,
-  ReadUserByEmail,
   UpdateUser,
 } 
 from "../repository/UserRepository";
