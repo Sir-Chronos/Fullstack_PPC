@@ -1,7 +1,10 @@
 import { Router } from "express";
 import * as HolidaysController from '../controllers/HolidayController';
+import { authenticateToken } from "../middleware/authMiddleware";
 
 const HolidaysRouter = Router();
+
+HolidaysRouter.use(authenticateToken)
 
 HolidaysRouter.post("/", HolidaysController.createHoliday);
 HolidaysRouter.get("/", HolidaysController.getAllHolidays);

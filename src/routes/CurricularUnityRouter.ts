@@ -1,7 +1,10 @@
 import { Router } from "express";
 import * as CurricularUnitySkillController from '../controllers/CurricularUnityController';
+import { authenticateToken } from "../middleware/authMiddleware";
 
 const CurricularUnitySkillRouter = Router();
+
+CurricularUnitySkillRouter.use(authenticateToken)
 
 CurricularUnitySkillRouter.post("/", CurricularUnitySkillController.createCurricularUnity);
 CurricularUnitySkillRouter.get("/", CurricularUnitySkillController.getAllCurricularUnitys);

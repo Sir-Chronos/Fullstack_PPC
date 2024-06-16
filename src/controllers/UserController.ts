@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import {
   CreateUser,
   DeleteUser,
+  LoginUser,
   ReadAllUsers,
   ReadUser,
-  ReadUserByEmail,
   UpdateUser,
 } 
 from "../repository/UserRepository";
@@ -79,19 +79,29 @@ export async function deleteUser(req: Request, res: Response) {
   }
 }
 
-// Login de usuário
+// // Login de usuário
+// export async function loginUser(req: Request, res: Response) {
+//   const { email, password } = req.body;
+//   try {
+//     const user = await ReadUserByEmail(email);
+//     if (user && (await bcrypt.compare(password, user.password))) {
+//       // Suponha que você gera um token JWT aqui
+//       const token = "fake-jwt-token";
+//       res.status(200).json({ token });
+//     } else {
+//       res.status(401).json({ error: "Credenciais inválidas" });
+//     }
+//   } catch (error) {
+//     res.status(500).json({ error: "Erro ao fazer login" });
+//   }
+// }
+
 export async function loginUser(req: Request, res: Response) {
   const { email, password } = req.body;
   try {
-    const user = await ReadUserByEmail(email);
-    if (user && (await bcrypt.compare(password, user.password))) {
-      // Suponha que você gera um token JWT aqui
-      const token = "fake-jwt-token";
-      res.status(200).json({ token });
-    } else {
-      res.status(401).json({ error: "Credenciais inválidas" });
-    }
+      const { user, token } = await LoginUser(email, password);
+      res.status(200).json({ user, token });
   } catch (error) {
-    res.status(500).json({ error: "Erro ao fazer login" });
+      res.status(401).json({ error: "Credenciais inválidas" });
   }
 }
