@@ -10,6 +10,22 @@ import {
 from "../repository/UserRepository";
 import bcrypt from "bcrypt";
 
+// Renderiza a página de login
+export function renderLoginPage(req: Request, res: Response) {
+  res.render('login');
+}
+
+// Processa o login do usuário
+export async function loginUser(req: Request, res: Response) {
+  const { email, password } = req.body;
+  try {
+    const { user, token } = await LoginUser(email, password);
+    res.status(200).json({ user, token });
+  } catch (error) {
+    res.status(401).json({ error: "Credenciais inválidas" });
+  }
+}
+
 // Cria um usuário
 export async function createUser(req: Request, res: Response) {
   const { name, password, email } = req.body;
@@ -76,32 +92,5 @@ export async function deleteUser(req: Request, res: Response) {
     }
   } catch (error) {
     res.status(500).json({ error: "Erro ao deletar usuário" });
-  }
-}
-
-// // Login de usuário
-// export async function loginUser(req: Request, res: Response) {
-//   const { email, password } = req.body;
-//   try {
-//     const user = await ReadUserByEmail(email);
-//     if (user && (await bcrypt.compare(password, user.password))) {
-//       // Suponha que você gera um token JWT aqui
-//       const token = "fake-jwt-token";
-//       res.status(200).json({ token });
-//     } else {
-//       res.status(401).json({ error: "Credenciais inválidas" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ error: "Erro ao fazer login" });
-//   }
-// }
-
-export async function loginUser(req: Request, res: Response) {
-  const { email, password } = req.body;
-  try {
-      const { user, token } = await LoginUser(email, password);
-      res.status(200).json({ user, token });
-  } catch (error) {
-      res.status(401).json({ error: "Credenciais inválidas" });
   }
 }
