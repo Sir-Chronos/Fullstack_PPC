@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import path from 'path';  // Import necessário para configurar o diretório de views
 import sequelize from "./config/sequelize";
 
 import UserRouter from "./routes/UserRouter";
@@ -15,6 +16,10 @@ import KnowledgeRouter from "./routes/KnowledgeRouter";
 
 const port = 8000;
 const app = express();
+
+// Configurar o diretório de views e o motor de templates
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // Middleware for JSON handling
 app.use(express.json());
@@ -34,7 +39,7 @@ app.use("/knowledge", KnowledgeRouter);
 
 // Root route
 app.get("/", (req: Request, res: Response) => {
-    res.send("Home page");
+    res.render('homePage', { message: "Home page" });
 });
 
 // Sync database and start server
