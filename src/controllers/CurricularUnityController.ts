@@ -10,9 +10,9 @@ from "../repository/CurricularUnityRepository";
 
 // Cria uma Unidade Curricular
 export async function createCurricularUnity(req: Request, res: Response) {
-  const { objetive, name, ppcId } = req.body;
+  const { objective, name, ppcId } = req.body;
   try {
-    const CurricularUnity = await CreateCurricularUnity(objetive, name, ppcId);
+    const CurricularUnity = await CreateCurricularUnity(objective, name, ppcId);
     res.status(201).json(CurricularUnity);
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar Unidade Curricular" });

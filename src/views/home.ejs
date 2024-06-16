@@ -1,17 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <!-- Link para seu CSS, se aplicável -->
-  </head>
-  <body>
-    <div class="container">
-      <h1>Bem-vindo à Página Principal</h1>
-      <p>Essa é a página principal do seu aplicativo.</p>
-      <!-- Adicione mais conteúdo e lógica conforme necessário -->
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <div class="header">
+        <div class="user-icon">
+            <img src="../imgs/user-icon.png" alt="User Icon">
+        </div>
     </div>
-  </body>
+    <div class="container">
+        <div class="sidebar">
+
+        </div>
+        <div class="main-content">
+            <h1>Home Page</h1>
+            <form action="/ppc" method="POST">
+                <h2>Cadastrar PPC</h2>
+                <label for="ppc">Nome do PPC:</label>
+                <input type="text" id="ppc-occupationArea" name="occupationArea" required>
+                <input type="text" id="ppc-course" name="course" required>
+                <input type="date" id="ppc-version" name="version" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/bibliograph" method="POST">
+                <h2>Cadastrar bibliografia</h2>
+                <label for="bibliograph">Criar bibliografia:</label>
+                <input type="text" id="bibliograph-type" name="type" required>
+                <input type="text" id="bibliograph-description" name="description" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/skill" method="POST">
+                <h2>Cadastrar Skil</h2>
+                <label for="skill">Criar habilidade:</label>
+                <input type="text" id="skill-type" name="type" required>
+                <input type="text" id="skill-description" name="description" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/knowledge" method="POST">
+                <h2>Cadastrar conhecimento</h2>
+                <label for="knowledge">Criar conhecimento:</label>
+                <input type="text" id="knowledge-description" name="description" required>
+                <input type="number" id="knowledge-knowFatherId" name="knowFatherId" >
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/holidays" method="POST">
+                <h2>Cadastrar feriado</h2>
+                <label for="holidays">cadastra feriado:</label>
+                <input type="text" id="holidays-type" name="type" required>
+                <input type="date" id="holiday-date" name="date" required>
+                <input type="date" id="holiday-compensation" name="compensation" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/evaluation-periods" method="POST">
+                <h2>Cadastrar semestre</h2>
+                <label for="semestre">semestre:</label>
+                <input type="text" id="evaluation-periods-type" name="name" required>
+                <input type="date" id="evaluation-periods-beginning" name="beginning" required>
+                <input type="date" id="evaluation-periods-ending" name="ending" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/curricular-unity" method="POST">
+                <h2>Cadastrar Unidade curricular</h2>
+                <label for="CU">CU:</label>
+                <input type="text" id="curricular-unity-objective" name="objective" required>
+                <input type="text" id="curricular-unity-name" name="name" required>
+                <input type="number" id="curricular-unity-ppcId" name="ppcId" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/curricular-unity-bibliograph" method="POST">
+                <h2>relacionar CU com bibliografia</h2>
+                <label for="CU">CUB:</label>
+                <input type="number" id="curricular-unity-bibliograph-bibliographId" name="bibliographId" required>
+                <input type="number" id="curricular-unity-bibliograph-curricularUnityId" name="curricularUnityId" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/curricular-unity-knowledge" method="POST">
+                <h2>relacionar CU com conhecimeto</h2>
+                <label for="CU">CUC:</label>
+                <input type="number" id="curricular-unity-bibliograph-bibliographId" name="knowledgeId" required>
+                <input type="number" id="curricular-unity-bibliograph-curricularUnityId" name="curricularUnityId" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <form action="/curricular-unity-skill" method="POST">
+                <h2>relacionar CU com skill</h2>
+                <label for="CU">CUS:</label>
+                <input type="number" id="curricular-unity-bibliograph-skillId" name="skillId" required>
+                <input type="number" id="curricular-unity-bibliograph-curricularUnityId" name="CurricularUnityId" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
+
+  
