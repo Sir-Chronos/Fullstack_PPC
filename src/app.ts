@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import path from "path";
+import cookieParser from "cookie-parser"; // Importar cookie-parser
 import sequelize from "./config/sequelize";
 
 import UserRouter from "./routes/UserRouter";
@@ -22,9 +23,10 @@ const app = express();
 app.set("views", path.join(__dirname, "../src/views"));
 app.set("view engine", "ejs");
 
-// Middleware for JSON handling
+// Middleware for JSON handling and URL encoding
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // Para parsear o corpo das requisições
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser()); // Adicionar cookie-parser
 
 // Register routes
 app.use("/user", UserRouter);
@@ -41,8 +43,8 @@ app.use("/knowledge", KnowledgeRouter);
 app.use("/home", HomeRouter);
 
 // Root route
-app.get("/login", (req: Request, res: Response) => {
-  res.render("loginScreen", { message: "Home page" });
+app.get("/", (req: Request, res: Response) => {
+  res.redirect("/user/login");
 });
 
 // Sync database and start server
