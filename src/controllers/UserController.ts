@@ -15,6 +15,10 @@ export function renderLoginPage(req: Request, res: Response) {
   res.render('login');
 }
 
+export function renderRegisterPage(req: Request, res: Response) {
+  res.render('register');
+};
+
 // Processa o login do usuário
 export async function loginUser(req: Request, res: Response) {
   const { email, password } = req.body;
@@ -33,7 +37,7 @@ export async function createUser(req: Request, res: Response) {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await CreateUser(name, hashedPassword, email);
-    res.status(201).json(user);
+    res.redirect('/user/login');
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar usuário" });
   }

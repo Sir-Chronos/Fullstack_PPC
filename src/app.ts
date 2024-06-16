@@ -23,6 +23,8 @@ const app = express();
 app.set("views", path.join(__dirname, "../src/views"));
 app.set("view engine", "ejs");
 
+app.use(express.static(path.join(__dirname, '../src/public')));
+
 // Middleware for JSON handling and URL encoding
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
