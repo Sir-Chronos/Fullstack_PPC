@@ -20,7 +20,8 @@ export async function loginUser(req: Request, res: Response) {
   const { email, password } = req.body;
   try {
     const { user, token } = await LoginUser(email, password);
-    res.status(200).json({ user, token });
+    res.cookie('token', token, { httpOnly: true });
+    res.redirect('/home');
   } catch (error) {
     res.status(401).json({ error: "Credenciais inválidas" });
   }
