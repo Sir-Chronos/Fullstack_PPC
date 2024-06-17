@@ -10,13 +10,34 @@ import {
 from "../repository/UserRepository";
 import bcrypt from "bcrypt";
 
+// Renderiza a página de login
+export function renderLoginPage(req: Request, res: Response) {
+  res.render('login');
+}
+
+export function renderRegisterPage(req: Request, res: Response) {
+  res.render('register');
+};
+
+// Processa o login do usuário
+export async function loginUser(req: Request, res: Response) {
+  const { email, password } = req.body;
+  try {
+    const { user, token } = await LoginUser(email, password);
+    res.cookie('token', token, { httpOnly: true });
+    res.redirect('/home');
+  } catch (error) {
+    res.status(401).json({ error: "Credenciais inválidas" });
+  }
+}
+
 // Cria um usuário
 export async function createUser(req: Request, res: Response) {
   const { name, password, email } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await CreateUser(name, hashedPassword, email);
-    res.status(201).json(user);
+    res.redirect('/user/login');
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar usuário" });
   }
@@ -76,32 +97,5 @@ export async function deleteUser(req: Request, res: Response) {
     }
   } catch (error) {
     res.status(500).json({ error: "Erro ao deletar usuário" });
-  }
-}
-
-// // Login de usuário
-// export async function loginUser(req: Request, res: Response) {
-//   const { email, password } = req.body;
-//   try {
-//     const user = await ReadUserByEmail(email);
-//     if (user && (await bcrypt.compare(password, user.password))) {
-//       // Suponha que você gera um token JWT aqui
-//       const token = "fake-jwt-token";
-//       res.status(200).json({ token });
-//     } else {
-//       res.status(401).json({ error: "Credenciais inválidas" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ error: "Erro ao fazer login" });
-//   }
-// }
-
-export async function loginUser(req: Request, res: Response) {
-  const { email, password } = req.body;
-  try {
-      const { user, token } = await LoginUser(email, password);
-      res.status(200).json({ user, token });
-  } catch (error) {
-      res.status(401).json({ error: "Credenciais inválidas" });
   }
 }

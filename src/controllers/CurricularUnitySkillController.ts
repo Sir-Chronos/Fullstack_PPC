@@ -10,10 +10,10 @@ from "../repository/CurricularUnitySkillRepository";
 
 // Cria uma Skill de Unidade Curricular
 export async function createCurricularUnitySkill(req: Request, res: Response) {
-  const { CurricularUnityId, skillId } = req.body;
+  const { curricularUnityId, skillId } = req.body;
   try {
     const CurricularUnitySkill = await CreateCurricularUnitySkill(
-      CurricularUnityId,
+      curricularUnityId,
       skillId
     );
     res.status(201).json(CurricularUnitySkill);

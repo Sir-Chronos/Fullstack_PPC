@@ -11,8 +11,13 @@ from "../repository/KnowledgeRepository";
 // Cria um Knowledge
 export async function createKnowledge(req: Request, res: Response) {
   const { description, knowFatherId } = req.body;
+
   try {
-    const Knowledge = await CreateKnowledge(description, knowFatherId);
+    // Chama a função CreateKnowledge com ou sem knowFatherId, dependendo da sua presença
+    const Knowledge = knowFatherId 
+      ? await CreateKnowledge(description, knowFatherId) 
+      : await CreateKnowledge(description);
+
     res.status(201).json(Knowledge);
   } catch (error) {
     res.status(500).json({ error: "Erro ao criar Knowledge" });

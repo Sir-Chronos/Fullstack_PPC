@@ -4,11 +4,14 @@ import { authenticateToken } from '../middleware/authMiddleware';
 
 const UserRouter = Router();
 
-UserRouter.post("/", UserController.createUser);
 UserRouter.get("/", authenticateToken, UserController.getAllUsers);
+UserRouter.post("/signup", UserController.createUser);
+UserRouter.get('/signup', UserController.renderRegisterPage)
+UserRouter.post("/login", UserController.loginUser);
+UserRouter.get("/login", UserController.renderLoginPage);
 UserRouter.get("/:id", authenticateToken, UserController.getUser);
 UserRouter.put("/:id", authenticateToken, UserController.updateUser);
 UserRouter.delete("/:id", authenticateToken, UserController.deleteUser);
-UserRouter.post("/login", UserController.loginUser);
+ // Nova rota para renderizar a página de login
 
 export default UserRouter;
