@@ -23,6 +23,7 @@ Projeto dedicado a criar e manter planos de curso (PPC)
 
 - No command prompt use : git clone https://github.com/Sir-Chronos/Fullstack_PPC
 - Entre no pasta  clonada e use : npm install
+- Use o .env.example como base para criar seu banco de dados
 
 ## Uso
 
