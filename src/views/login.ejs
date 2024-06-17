@@ -17,7 +17,7 @@
         <% if (typeof error !== 'undefined') { %>
             <p style="color: red;"><%= error %></p>
         <% } %>
-        <form id="loginForm" action="/user/login" method="POST" class="form">
+        <form id="loginForm" action="/user/login" method="POST" class aria-placeholder="Insira Seu Nome">
             <div class="form-group">
                 <label for="email">Usuario</label>
                 <input class="form-control" type="email" id="email" name="email" required placeholder="Insira Seu Email">
