@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #212121;
+    color: #ecf0f1;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #2a2a2a;
+    color: #fff;
+    margin-bottom: 5vh;
+}
+
+.header .user-icon img {
+    height: 10vh;
+}
+
+.header .logout-button {
+    background: #e20814;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 2vh;
+}
+
+.header .logout-button:hover {
+    background: #88080c;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 30vh;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3 {
+    margin-top: 1vh;
+    color: #ecf0f1;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card form label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #bdc3c7;
+}
+
+.card form input, .card form button {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.card form input {
+    background: #3a3a3a;
+    color: #ecf0f1;
+}
+
+.card form button {
+    background: #e20814;
+    color: white;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.card form button:hover {
+    background: #88080c;
+}
